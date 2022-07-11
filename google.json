@@ -1,0 +1,10 @@
+{
+    "name": "google",
+    "port": 80,
+    "check": {
+        "name": "ping check",
+        "args": ["ping", "-c1", "google.com"],
+        "interval": "3s",
+        "status": "passing"
+    }
+}

@@ -4,7 +4,14 @@ import (
 	"github.com/hashicorp/consul/api"
 )
 
+/** Useful links
+https://pkg.go.dev/github.com/hashicorp/consul/api#section-readme
+https://www.consul.io/docs/discovery/services
+https://www.consul.io/docs/discovery/checks
+**/
+
 func main() {
+
 	// Get a new client
 	client, err := api.NewClient(api.DefaultConfig())
 	if err != nil {

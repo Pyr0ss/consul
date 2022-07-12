@@ -2,27 +2,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/tatsushid/go-fastping"
-	"net"
 	"os"
-	"time")
+	"os/exec"
+)
 
 func main() {
-	p := fastping.NewPinger()
-	ra, err := net.ResolveIPAddr("ip4:icmp", "google.com")
+	cmd := exec.Command("ping", "google.com", "-c1")
+	out, err := cmd.Output()
+
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(err.Error())
 		os.Exit(1)
-	}
-	p.AddIPAddr(ra)
-	p.OnRecv = func(addr *net.IPAddr, rtt time.Duration) {
-		fmt.Printf("IP Addr: %s receive, RTT: %v\n", addr.String(), rtt)
-	}
-	p.OnIdle = func() {
-		fmt.Println("finish")
-	}
-	err = p.Run()
-	if err != nil {
-		fmt.Println(err)
+	} else {
+		fmt.Printf("%s\n", out)
+		os.Exit(0)
 	}
 }

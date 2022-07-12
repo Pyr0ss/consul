@@ -1,5 +1,11 @@
 package main
 
+/** Useful links
+https://pkg.go.dev/os
+https://pkg.go.dev/os/exec
+https://www.consul.io/docs/discovery/checks#check-scripts
+**/
+
 import (
 	"fmt"
 	"os"

@@ -14,7 +14,7 @@ func main() {
 	//Get agent
 	agent := client.Agent()
 	
-	//Creat check
+	//Create check
 	check := &api.AgentServiceCheck{
 		Args: []string{"go", "run", "google_health_check.go"},
 		Interval: "5s",
